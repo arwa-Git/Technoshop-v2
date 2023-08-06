@@ -30,6 +30,7 @@ export class ProductService {
     formData.append('urls', productData.urls);
 
     // Send the FormData object as the request body
+    /////
     return this.http.post<any>(this.apiUrl, formData);
   }
 
