@@ -1,0 +1,37 @@
+   <div class="form">
+     <h3>Parametre</h3>
+    <form class="" >
+
+      <div class="inputsFields">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom"  name="nom" required />
+      </div>
+      <div class=" inputsFields">
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required />
+      </div>
+      <div class=" inputsFields">
+        <label for="adresse">Adresse:</label>
+        <input type="text" id="adresse"  name="adresse" required />
+      </div>
+      <div class=" inputsFields">
+        <label for="telephone">Téléphone:</label>
+        <input type="text" id="telephone"  name="telephone" required />
+      </div>
+      <div class=" inputsFields">
+        <label for="Email">Email:</label>
+        <input type="text" id="Email"  name="Email" required />
+      </div>
+      <div class="inputsFields">
+        <label for="motDePasse">Mot de passe:</label>
+        <input type="password" id="motDePasse"  name="motDePasse" required />
+      </div>
+      
+      <div class="buttons-container">
+        <button class="update-button" (click)="handleUpdate()">Modifier le compte</button>
+        <button class="delete-button" (click)="handleDelete()">Supprimer le compte</button>
+      </div>
+    </form>
+
+   </div>
+  

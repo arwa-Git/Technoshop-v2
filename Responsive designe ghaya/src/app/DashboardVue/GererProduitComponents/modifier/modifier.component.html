@@ -1,0 +1,43 @@
+<!-- <div class="container"> -->
+  <!-- <div> -->
+    <h2 mat-dialog-title>Modifier un Produit :</h2>
+  <!-- </div> -->
+  <form mat-dialog-content class="formContainer">
+    <div class="col-sm-2 col-md-2 col-lg-2 inputsFields" >
+      <label>Category </label>
+      <select class="form-select inputsFields" name="category"
+        class="form-control" aria-label="Default select example">
+        <option selected>Ordinateur</option>
+        <option value="1">Tv</option>
+        <option value="2">Frigidaire</option>
+        <option value="3">Machine à laver</option>
+      </select>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 inputsFields inputsFields"  >
+      <label>Nom Produit</label>
+      <input type="text" name="nomProduit" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2 inputsFields"  >
+      <label>Prix Produit</label>
+      <input type="number" name="prixProduit" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 inputsFields"  >
+      <label>Description</label>
+      <textarea type="text" name="description"
+        class="form-control"></textarea>
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4 inputsFields"  >
+      <label>URL</label>
+      <input type="text"  name="urlProduit" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4 inputsFields"  >
+      <label>New Image</label>
+      <input type="file" (change)="onImageSelect($event)" accept="image/*" class="form-control">
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="updateProduit()" class="btn btn-success">Modifier</button>
+    </div>
+  </form>
+<!-- </div> -->

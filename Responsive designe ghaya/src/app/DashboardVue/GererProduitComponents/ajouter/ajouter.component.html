@@ -1,0 +1,51 @@
+<form [formGroup]="ProductRegistrationForm" enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Product Name</label>
+      <input type="text" class="form-control" placeholder="Input Product Name" formControlName="name" [(ngModel)]="productDTO.name" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Product Price</label>
+      <input type="number" class="form-control" placeholder="Input Product Price" formControlName="price" [(ngModel)]="productDTO.price" required>
+    </div>
+  </div>
+  <div class="form-group col-md-13"> <!-- Use col-md-12 to make the category select take up the full width -->
+    <label>Category</label>
+    <select [(ngModel)]="productDTO.category" name="category" class="form-control" aria-label="Default select example" [(ngModel)]="productDTO.category" formControlName="category" required>
+      <option value="ordinateur">Ordinateur</option>
+      <option value="telephone">Téléphone</option>
+      <option value="telephone">Frigidaire</option>
+      <option value="telephone">Machine à laver</option>
+      <option value="telephone">Imprimante</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Product Description</label>
+    <div class="input-group">
+      <textarea class="form-control" aria-label="With textarea" placeholder="" formControlName="description" [(ngModel)]="productDTO.description" required></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Product URLs</label>
+    <div class="input-group">
+      <textarea class="form-control" aria-label="With textarea" placeholder="Enter URLs separated by commas" formControlName="urls" [(ngModel)]="productDTO.urls" required></textarea>
+    </div>
+    <small class="form-text text-muted">Enter multiple URLs separated by commas.</small>
+  </div>
+  <div class="form-group mt-3"> <!-- Add margin top to create space -->
+    <div class="input-group"> <!-- Use input-group to put the button and input in the same line -->
+      <div class="custom-file">
+        <input
+        type="file"
+        class="custom-file-input"
+        id="inputGroupFile01"
+        formControlName="image"
+        aria-describedby="inputGroupFileAddon01"
+        (change)="onSelectFile($event)"
+        required>  
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+      <button type="submit" class="btn btn-success ml-2" (click)="addProduct()">Create Product</button> <!-- Use ml-2 for left margin -->
+    </div>
+  </div>
+</form>

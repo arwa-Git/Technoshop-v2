@@ -1,0 +1,21 @@
+<div class="body" >
+ <div class="container">
+  <div class="sign-in">
+    <form  [formGroup]="ConnexionForm" (ngSubmit)="validertous()">
+      <p class="title">Connexion</p>
+      <input placeholder="Email" class="input" name="text" type="email" formControlName="email" required [(ngModel)] = "userLogin.email">
+      <input placeholder="password " class="input" name="text" type="password" formControlName="pwd" required [(ngModel)] = "userLogin.password">
+      <button type="submit" (click)="Connexion()" >Connexion</button>
+      <a routerLink="/forgotPassword">Forgot password?</a>
+    </form>
+    <p id="invisibleP">You Have not An Account ?</p>
+    
+    <button routerLink="/RegistrationUser" id="invisibleBTN">Create Account</button>
+  </div>
+  <div class="overlay-container">
+    <p class="title">Welcome To TeknoShop !</p>
+    <p class="sous-titre">You Have not An Account ?</p>
+    <button id="signUp" routerLink="/RegistrationUser">Create Account</button>
+  </div>
+</div> 
+</div>

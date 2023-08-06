@@ -1,0 +1,100 @@
+
+/* input[type="text"] {
+  width: 100%;
+  margin-top: 40px;
+  padding: 10px;
+  border: none;
+  background-color: #b79eff6d;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+button[type="submit"] {
+  background-color: #4e99e9;
+  margin-top: 100px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: .9s ease;
+}
+
+ button[type="submit"]:hover {
+  transform: scale(1.1);
+  color: rgb(255, 255, 255);
+  background-color: blue;
+}
+
+.container{
+ width: 100%;
+ margin-top: 50px;
+
+}
+#card1{
+  background-color: rgba(169, 132, 255, 0.249);
+  border-radius: 20px;
+}
+img{
+  border-radius:8px;
+}
+h2{
+  margin-top: 20px;
+}
+
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #b2b2b2;
+}
+
+
+.card {
+  margin-top: 20px;
+  max-width: 600px; /* Set a maximum width for the card */
+  border-radius: 50px;
+  background-color: rgba(248, 235, 255, 0.907);
+  margin: auto; /* Horizontally center the card */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label {
+  font-weight: bold;
+  display: block;
+}
+li{
+  margin-top: 10px;
+}
+#card-user{
+  margin-top: 20px;
+  border-radius: 20px;
+  height: 100%;
+  background-color: rgba(248, 235, 255, 0.37);
+  display: flex;
+  max-width: 200px;
+  margin: auto; 
+flex-direction: column;
+align-items: center;
+
+}
+
+
+.input-group-text{
+  border-radius: 20px 20px 20px 20px;
+  background-color: #b79eff6d;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-control{
+  border-radius: 20px 20px 20px 20px;
+  background-color: #b79eff6d;
+  box-shadow: none;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-control:active{
+  border: none;
+}

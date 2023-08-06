@@ -1,0 +1,88 @@
+<mat-sidenav-container class="example-container" >
+  
+   <mat-sidenav   #side opened="
+   false">
+    <div class="side-top">
+      <mat-icon >person</mat-icon>
+      <span>Tekno</span><span>Shop</span>
+    </div>
+    <div class="profile-side-container">
+        <img class="img" src="https://colorlib.com/polygon/gentelella/images/img.jpg" alt="">
+        <div class="profile-side-container-txt">
+          <span>welcome ,</span>
+          <span>name user </span>
+        </div>
+    </div>
+    <mat-list >  
+      <mat-list-item >
+        <span class="title">general</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item routerLink="/gerervendeur" class="hover"  (click)="changeretat('Gerer les vendeurs')"> 
+        <div >
+          <mat-icon>supervised_user_circle</mat-icon>
+          <span>Gerer les vendeurs</span> 
+        </div>
+      </mat-list-item>
+      <mat-list-item routerLink="/gererProduct" class="hover" (click)="changeretat('Gerer les produits')"> 
+        <div >
+          <mat-icon>view_in_ar</mat-icon>
+        <span>Gerer les produits</span>
+        </div>
+         
+      </mat-list-item>
+      
+      <mat-list-item >
+        <span class="title">profile</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item routerLink="/parametre" class="hover" (click)="changeretat('Parametre de compte')">
+        <div>
+         <mat-icon>manage_accounts</mat-icon>
+        <span>Parametre de compte </span> 
+        </div>    
+      </mat-list-item>
+      <mat-list-item routerLink="/parametre-boutique" class="hover" (click)="changeretat('Parametre de boutique')">
+        <div>
+          <mat-icon> store_mall_directory</mat-icon>
+        <span>Parametre de boutique </span> 
+        </div>    
+      </mat-list-item>
+      <mat-list-item routerLink="/parametreconsommateur" class="hover" (click)="changeretat('Parametre de boutique')">
+        <div>
+          <mat-icon> manage_accounts</mat-icon>
+        <span>Parametre  </span> 
+        </div>    
+      </mat-list-item>
+      <mat-list-item class="hover" routerLink="/ma-selection" (click)="changeretat('Ma selection')"> 
+        <div>
+          <mat-icon>favorite</mat-icon>
+        <span>Ma selection </span>
+        </div>
+         
+      </mat-list-item>
+      <mat-list-item class="hover"> 
+        <div>
+          <mat-icon>logout</mat-icon>
+        <span>Se deconnecte </span>
+        </div>
+         
+      </mat-list-item>
+    </mat-list>  
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <button mat-icon-button style=" background-color: white; box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3); margin-left: 0.5rem;" (click)="side.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="!side.opened">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button style=" background-color: white; box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);  margin-left: 2rem;"(click)="side.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="side.opened">
+      <mat-icon>close</mat-icon>
+    </button> 
+      <mat-card [ngClass]="{'sidenavclosed':!side.opened , 'sidenavopened' : side.opened}">
+        <mat-card-content >
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>    
+          
+  </mat-sidenav-content>
+</mat-sidenav-container>
