@@ -60,7 +60,7 @@ export class ConsulterComponent {
     console.log(product.id); // Log the product ID in the console
     alert(`Product ID: ${product.id}`); // Show the product ID in an alert
     const productId = product.id;
-    this.router.navigate(['/modifier']);
+    this.router.navigate(['/modifier', product.id]);
   }
   
 }

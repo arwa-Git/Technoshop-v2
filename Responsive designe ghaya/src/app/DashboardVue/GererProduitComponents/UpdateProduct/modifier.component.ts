@@ -1,27 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductDTO } from 'src/app/classes/PoductDTO';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/Services/ProductService/product-service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-modifier',
   templateUrl: './modifier.component.html',
   styleUrls: ['./modifier.component.css'],
 })
-export class ModifierComponent {
+
+
+export class ModifierComponent implements OnInit{
   productDTO: ProductDTO = new ProductDTO();
   msg?: string;
   selectedImageFile!: File;
   fileName: string = '';
+  id:any;
 
   constructor(
     private fb: FormBuilder,
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private routerActive:ActivatedRoute
   ) {}
+  ngOnInit(): void {
+    this.id = this.routerActive.snapshot.params['id'];
+    this.productService.getProductById(this.id).subscribe(
+      data => {this.productDTO = data;console.log(this.productDTO)
+      },error => console.log(error)
+    );
+  }
 
-  ProductRegistrationForm = this.fb.group({
+ /* ProductRegistrationForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(/^[A-Za-z]{2,}$/)]],
     price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
     description: ['', Validators.required],
@@ -48,7 +59,7 @@ export class ModifierComponent {
   get url() {
     return this.ProductRegistrationForm.get('urls');
   }
-
+*/
   onSelectFile(event: any) {
     const file = event.target.files[0];
     this.selectedImageFile = file;

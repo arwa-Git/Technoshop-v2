@@ -23,6 +23,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AjouterComponent } from './DashboardVue/GererProduitComponents/AddProduct/ajouter.component';
 import { ConsulterComponent } from './DashboardVue/GererProduitComponents/CheckProducts/consulter.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ModifierComponent } from './DashboardVue/GererProduitComponents/UpdateProduct/modifier.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ConfirmedPasswordComponent,
     GererComponent,
     AjouterComponent,
-    ConsulterComponent
+    ConsulterComponent,
+    ModifierComponent
     ],
   imports: [
     BrowserModule,

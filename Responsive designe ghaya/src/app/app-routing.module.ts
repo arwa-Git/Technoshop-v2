@@ -43,7 +43,7 @@ const routes: Routes = [
           { path: 'consulter', component: ConsulterComponent },
         ],
       },
-      { path: 'modifier', component: ModifierComponent },
+      { path: 'modifier/:id', component: ModifierComponent },
       { path: 'consulter', component: ConsulterComponent },
       { path: 'ajouter', component: AjouterComponent },
       { path: 'parametre', component: ParametrecompteComponent },

@@ -2,16 +2,16 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Product Name</label>
-      <input type="text" class="form-control" placeholder="Input Product Name" formControlName="name"  required>
+      <input type="text" class="form-control"  [(ngModel)]="productDTO.name" name="name" required>
     </div>
     <div class="form-group col-md-6">
       <label>Product Price</label>
-      <input type="number" class="form-control" placeholder="Input Product Price" formControlName="price"  required>
+      <input type="number" class="form-control" [(ngModel)]="productDTO.price" name="price" required>
     </div>
   </div>
   <div class="form-group col-md-13">
     <label>Category</label>
-    <select  name="category" class="form-control" aria-label="Default select example" formControlName="category" required>
+    <select  name="category" class="form-control" aria-label="Default select example"  name="category" [(ngModel)]="productDTO.category" required>
       <option value="ordinateur">Ordinateur</option>
       <option value="telephone">Téléphone</option>
       <option value="telephone">Frigidaire</option>
@@ -22,13 +22,13 @@
   <div class="form-group">
     <label>Product Description</label>
     <div class="input-group">
-      <textarea class="form-control" aria-label="With textarea" placeholder="" formControlName="description"  required></textarea>
+      <textarea class="form-control" aria-label="With textarea" [(ngModel)]="productDTO.description" name="description"  required></textarea>
     </div>
   </div>
   <div class="form-group">
     <label>Product URLs</label>
     <div class="input-group">
-      <textarea class="form-control" aria-label="With textarea" placeholder="Enter URLs separated by commas" formControlName="urls"  required></textarea>
+      <textarea class="form-control" aria-label="With textarea" [(ngModel)]="productDTO.urls" name="urls"  required></textarea>
     </div>
     <small class="form-text text-muted">Enter multiple URLs separated by commas.</small>
   </div>
@@ -39,9 +39,9 @@
         type="file"
         class="custom-file-input"
         id="inputGroupFile01"
-        formControlName="image"
+        name="imageUrl"
         aria-describedby="inputGroupFileAddon01"
-       
+        [(ngModel)]="productDTO.imageUrl"
         required>  
         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
       </div>
