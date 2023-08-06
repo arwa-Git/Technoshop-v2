@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Produit2 } from '../../model/produit2.model';
-import { ModifierComponent } from '../modifier/modifier.component';
+import { ModifierComponent } from '../UpdateProduct/modifier.component';
 import { ProductDTO } from 'src/app/classes/PoductDTO';
 import { ProductService } from 'src/app/Services/ProductService/product-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consulter',
@@ -15,7 +16,7 @@ export class ConsulterComponent {
  // produits?: Produit2[];
   formModal: any
 
-  constructor(private dialogref : MatDialog , private productService:ProductService) {}
+  constructor(private dialogref : MatDialog , private productService:ProductService , private router: Router) {}
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe(
@@ -45,17 +46,21 @@ export class ConsulterComponent {
       );
       window.location.reload();
     }
-   // let conf = confirm("Etes-vous sur ?");
-    //if (conf)
-     // this.produitService.supprimerProduit(prod);
   }
-  url = 'https://img.icons8.com/ios/100/000000/contract-job.jpg';
+
 
   openDialog( categorie : string){
     this.dialogref.open(ModifierComponent,{
      width:'500px' , 
      data:{categorie:categorie},
     })
+  }
+
+  handleUpdateClick(product: ProductDTO) {
+    console.log(product.id); // Log the product ID in the console
+    alert(`Product ID: ${product.id}`); // Show the product ID in an alert
+    const productId = product.id;
+    this.router.navigate(['/modifier']);
   }
   
 }

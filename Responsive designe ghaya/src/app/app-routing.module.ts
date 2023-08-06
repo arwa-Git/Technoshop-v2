@@ -8,10 +8,10 @@ import { DashboardComponent } from './DashboardVue/dashboard/dashboard.component
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ConfirmedPasswordComponent } from './confirmed-password/confirmed-password.component';
 import { GerervendeurComponent } from './DashboardVue/GererVendeurComponents/gerervendeur/gerervendeur.component';
-import { GererComponent } from './DashboardVue/GererProduitComponents/gerer/gerer.component';
-import { AjouterComponent } from './DashboardVue/GererProduitComponents/ajouter/ajouter.component';
-import { ModifierComponent } from './DashboardVue/GererProduitComponents/modifier/modifier.component';
-import { ConsulterComponent } from './DashboardVue/GererProduitComponents/consulter/consulter.component';
+import { GererComponent } from './DashboardVue/GererProduitComponents/ManageProduct/gerer.component';
+import { AjouterComponent } from './DashboardVue/GererProduitComponents/AddProduct/ajouter.component';
+import { ModifierComponent } from './DashboardVue/GererProduitComponents/UpdateProduct/modifier.component';
+import { ConsulterComponent } from './DashboardVue/GererProduitComponents/CheckProducts/consulter.component';
 import { ParametrecompteComponent } from './DashboardVue/settingsVendeurAdmin/parametrecompte/parametrecompte.component';
 import { ParametreconsommateurComponent } from './DashboardVue/ConsumerComponents/parametreconsommateur/parametreconsommateur.component';
 import { ParametreboutiqueComponent } from './DashboardVue/settingsVendeurAdmin/parametreboutique/parametreboutique.component';
@@ -43,6 +43,9 @@ const routes: Routes = [
           { path: 'consulter', component: ConsulterComponent },
         ],
       },
+      { path: 'modifier', component: ModifierComponent },
+      { path: 'consulter', component: ConsulterComponent },
+      { path: 'ajouter', component: AjouterComponent },
       { path: 'parametre', component: ParametrecompteComponent },
       {
         path: 'parametreconsommateur',

@@ -1,0 +1,51 @@
+<form  enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Product Name</label>
+      <input type="text" class="form-control" placeholder="Input Product Name" formControlName="name"  required>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Product Price</label>
+      <input type="number" class="form-control" placeholder="Input Product Price" formControlName="price"  required>
+    </div>
+  </div>
+  <div class="form-group col-md-13">
+    <label>Category</label>
+    <select  name="category" class="form-control" aria-label="Default select example" formControlName="category" required>
+      <option value="ordinateur">Ordinateur</option>
+      <option value="telephone">Téléphone</option>
+      <option value="telephone">Frigidaire</option>
+      <option value="telephone">Machine à laver</option>
+      <option value="telephone">Imprimante</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Product Description</label>
+    <div class="input-group">
+      <textarea class="form-control" aria-label="With textarea" placeholder="" formControlName="description"  required></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Product URLs</label>
+    <div class="input-group">
+      <textarea class="form-control" aria-label="With textarea" placeholder="Enter URLs separated by commas" formControlName="urls"  required></textarea>
+    </div>
+    <small class="form-text text-muted">Enter multiple URLs separated by commas.</small>
+  </div>
+  <div class="form-group mt-3">
+    <div class="input-group">
+      <div class="custom-file">
+        <input
+        type="file"
+        class="custom-file-input"
+        id="inputGroupFile01"
+        formControlName="image"
+        aria-describedby="inputGroupFileAddon01"
+       
+        required>  
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+      <button type="submit" class="btn btn-success ml-2" >Update Product</button>
+    </div>
+  </div>
+</form>

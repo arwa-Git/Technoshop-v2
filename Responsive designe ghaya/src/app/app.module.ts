@@ -14,14 +14,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { GererComponent } from './DashboardVue/GererProduitComponents/gerer/gerer.component';
+import { GererComponent } from './DashboardVue/GererProduitComponents/ManageProduct/gerer.component';
 import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AjouterComponent } from './DashboardVue/GererProduitComponents/ajouter/ajouter.component';
-import { ConsulterComponent } from './DashboardVue/GererProduitComponents/consulter/consulter.component';
+import { AjouterComponent } from './DashboardVue/GererProduitComponents/AddProduct/ajouter.component';
+import { ConsulterComponent } from './DashboardVue/GererProduitComponents/CheckProducts/consulter.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
