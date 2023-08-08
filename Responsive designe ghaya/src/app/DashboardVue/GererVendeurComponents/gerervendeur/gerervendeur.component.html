@@ -20,8 +20,9 @@
 </div>
 
 
-<div class="mt-5" *ngIf="selectedClient">
-  <div class="card">
+<div class="mt-5" *ngIf="selectedClient && test">
+  <div class="card alert-card" >
+    <button class="close-button" (click)="cardClicked($event)">&times;</button>
     <div class="card-body">
       <h5 class="card-title">{{ selectedClient.name }}</h5>
       <p class="card-text">Email: {{ selectedClient.email }}</p>

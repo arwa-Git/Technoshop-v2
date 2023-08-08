@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { client } from '../../model/client.model';
 import { ClientService } from '../../service/client/client.service';
 import { User } from 'src/app/classes/User';
@@ -15,11 +15,16 @@ export class GerervendeurComponent implements OnInit {
   searchclients: User[];
   selectedClient: User | null = null;
   role?:string;
+  test?:boolean
 
   constructor(private clientService: ClientService,private userService:UserService) {
     this.clients = [];
     this.searchclients = this.clients;
+    
   }
+
+
+
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(
@@ -36,6 +41,11 @@ export class GerervendeurComponent implements OnInit {
 
   showClientDetails(client: User): void {
     this.selectedClient = client;
+    this.test = true;
+  }
+
+  cardClicked(event: Event): void {
+    this.test = false;
   }
 
 
