@@ -13,6 +13,7 @@ export class ProductService {
   private apigetUrl = 'http://localhost:6002/getProducts';
   private apideleteUrl = 'http://localhost:6002/delete';
   private getproduct = 'http://localhost:6002/getProductById';
+  private apiUpdateUrl = 'http://localhost:6002/UpdateProducts';
 
   
 
@@ -48,5 +49,22 @@ export class ProductService {
   
   getProductById(id:String):Observable<ProductDTO>{
     return this.httpClient.get<ProductDTO>(`${this.getproduct}/${id}`);
+  }
+
+  updateProduct(id:string , productData: any, imageFile: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('name', productData.name);
+    formData.append('price', productData.price.toString());
+    formData.append('category', productData.category);
+    formData.append('description', productData.description);
+    formData.append('image', imageFile); // Append the file directly
+
+    //const urlsArray = Array.isArray(productData.urls) ? productData.urls : [productData.urls];
+    //const urlsString = urlsArray.join(',');
+    formData.append('urls', productData.urls);
+
+    // Send the FormData object as the request body
+    /////
+    return this.httpClient.put<any>(`${this.apiUpdateUrl}/${id}`, formData);
   }
 }

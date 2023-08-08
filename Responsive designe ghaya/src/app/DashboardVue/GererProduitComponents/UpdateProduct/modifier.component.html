@@ -36,16 +36,18 @@
     <div class="input-group">
       <div class="custom-file">
         <input
-        type="file"
-        class="custom-file-input"
-        id="inputGroupFile01"
-        name="imageUrl"
-        aria-describedby="inputGroupFileAddon01"
-        [(ngModel)]="productDTO.imageUrl"
-        required>  
+          type="file"
+          class="custom-file-input"
+          id="inputGroupFile01"
+          [(ngModel)]="productDTO.imageUrl"
+          name="imageUrl"
+          aria-describedby="inputGroupFileAddon01"
+          (change)="onFileSelected($event)"
+          [value]="productDTO.imageUrl"
+          required>
         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
       </div>
-      <button type="submit" class="btn btn-success ml-2" >Update Product</button>
+      <button type="submit" class="btn btn-success ml-2" (click) = "UpdateProduct()">Update Product</button>
     </div>
   </div>
 </form>
