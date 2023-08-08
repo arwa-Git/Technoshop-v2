@@ -14,6 +14,7 @@ export class UserService {
 
   baseUrl = "http://localhost:6002";
   forgotUrl = "http://localhost:6002/forgotPassword";
+  apigetUsersUrl ="http://localhost:6002/api/users";
   constructor(private httpClient : HttpClient) { }
 
 
@@ -22,7 +23,9 @@ export class UserService {
     return this.httpClient.post<Object>(`${this.baseUrl}/register`,user);
   }
 
-  addProduct(){}
+  getAllUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.apigetUsersUrl);
+  }
 
 
 

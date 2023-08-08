@@ -98,3 +98,21 @@ align-items: center;
 .form-control:active{
   border: none;
 }
+
+.client-card {
+  margin-top: 20px; /* Adjust the value to set the desired space between clients */
+}
+
+.client-card-content {
+  display: flex;
+  align-items: center; /* Center items horizontally */
+}
+
+.client-card-content img {
+  margin-right: 10px; /* Adjust the value to set the space between image and alt text */
+}
+
+.alt-text {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Replace with your desired font family */
+}
+

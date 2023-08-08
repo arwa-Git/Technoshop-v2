@@ -5,4 +5,6 @@ export class User{
     phone?:String;
     password?:String;
     role?:Number;
+    resetPasswordToken?:String;
+    dateResetPasswordToken?:Date;
 }

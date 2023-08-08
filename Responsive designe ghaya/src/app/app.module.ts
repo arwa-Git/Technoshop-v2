@@ -24,6 +24,8 @@ import { AjouterComponent } from './DashboardVue/GererProduitComponents/AddProdu
 import { ConsulterComponent } from './DashboardVue/GererProduitComponents/CheckProducts/consulter.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModifierComponent } from './DashboardVue/GererProduitComponents/UpdateProduct/modifier.component';
+import { CommonModule } from '@angular/common';
+import { GerervendeurComponent } from './DashboardVue/GererVendeurComponents/gerervendeur/gerervendeur.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { ModifierComponent } from './DashboardVue/GererProduitComponents/UpdateP
     GererComponent,
     AjouterComponent,
     ConsulterComponent,
-    ModifierComponent
+    ModifierComponent,
+    GerervendeurComponent
     ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { ModifierComponent } from './DashboardVue/GererProduitComponents/UpdateP
     MatTabsModule,
     MatCardModule,
     MatDialogModule,
+    CommonModule,
    
   ],
   providers: [],
