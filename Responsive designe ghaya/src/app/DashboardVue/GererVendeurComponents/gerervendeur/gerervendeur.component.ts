@@ -48,19 +48,22 @@ export class GerervendeurComponent implements OnInit {
     this.test = false;
   }
 
-
-
-  deleteClient(client: client) {
-    const confirmDelete = window.confirm(
-      'Êtes-vous sûr de supprimer le vendeur ?'
-    );
+  deleteUser(user: User) {
+    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
     if (confirmDelete) {
-      // Call the client service to remove the vendor from the list
-      this.clientService.supprimerclient(client);
-      // Fetch the updated clients list from the service
-      this.clients = this.clientService.listeclient();
-      // Reset the selectedClient to hide the card
-      //this.selectedClient = undefined;
+    const id = user.id;
+     alert(id);
     }
   }
+
+  handleUpdateClick(user: User) {
+    const confirmDelete = window.confirm('Are you sure you want to update this user?');
+    if (confirmDelete) {
+    const id = user.id;
+     alert(id);
+    }
+  }
+
+
+  
 }

@@ -57,10 +57,11 @@ export class ConsulterComponent {
   }
 
   handleUpdateClick(product: ProductDTO) {
-    console.log(product.id); // Log the product ID in the console
-    alert(`Product ID: ${product.id}`); // Show the product ID in an alert
+    const confirmDelete = window.confirm('Are you sure you want to update this product?');
+    if (confirmDelete) {
     const productId = product.id;
     this.router.navigate(['/modifier', product.id]);
+    }
   }
   
 }

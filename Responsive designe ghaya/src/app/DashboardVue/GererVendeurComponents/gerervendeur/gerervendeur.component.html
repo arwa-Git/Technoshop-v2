@@ -10,9 +10,9 @@
     
 <div class="mt-5">
   <div class="offset-md-3 col-md-6 col-12  justify-content-center">
-    <div *ngFor="let client of clients" class="mb-2 client-card" (click)="showClientDetails(client)">
+    <div *ngFor="let client of clients" class="mb-2 client-card">
       <div class="client-card-content">
-        <img src="../assets/images/profile-image.png" alt="{{ client.name }}" width="80" height="80">
+        <img src="../assets/images/profile-image.png" alt="{{ client.name }}" width="80" height="80"  (click)="showClientDetails(client)">
         <span class="alt-text">{{ client.name }}</span>
       </div>
     </div>
@@ -29,8 +29,8 @@
       <p class="card-text">Phone: {{ selectedClient.phone }}</p>
       <p><strong>Role:</strong> {{ selectedClient.role === 0 ? 'Consumer' : 'Seller' }}</p>
       <div class="btn-group" role="group" aria-label="Action buttons">
-        <button class="btn btn-danger">Delete User</button>
-        <button class="btn btn-success ml-2">Update Info</button>
+        <button class="btn btn-danger" (click)="deleteUser(selectedClient)">Delete User</button>
+        <button class="btn btn-success ml-2" (click)="handleUpdateClick(selectedClient)">Update Info</button>
       </div>           
     </div>
   </div>
