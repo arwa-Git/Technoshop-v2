@@ -1,0 +1,82 @@
+<header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-3">
+          <div class="logo">
+            <h1> <mat-icon>compare_arrows</mat-icon>TechnoShop</h1>
+           
+          </div>
+        </div>
+        <div class="col-md-9 col-sm-9 col-lg-9 text-end">
+          <div class="menu-icon" [class.menu-icon-Class]="menu_icon_variable" (click)="openMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="user-menu" *ngIf="isLoggedIn; else showLoginButton">
+            <mat-menu #userMenu="matMenu">
+              <button mat-menu-item (click)="goToParametresCompte()">
+                <mat-icon>settings</mat-icon> Paramètres du compte
+              </button>
+              <button mat-menu-item>
+                <mat-icon>logout</mat-icon> Déconnexion
+              </button>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="userMenu">
+              <mat-icon>person</mat-icon> {{ nomUtilisateur }}
+            </button>
+          </div>
+          
+  
+  <div class="menu" [class.menuClass]="menuVariable">
+    <ul>
+      <li>
+        <a href="#" routerLink="bonPlan">
+          <mat-icon>local_offer</mat-icon>
+          Bon plan
+        </a>
+      </li>
+      <li>
+        <a href="#" [matMenuTriggerFor]="categoriesMenu">
+          <mat-icon style="color: #fff;">arrow_drop_down</mat-icon>
+          Catégories
+        </a>
+        <mat-menu #categoriesMenu="matMenu">
+          <button mat-menu-item>TV</button>
+          <button mat-menu-item>Smartphones</button>
+          <button mat-menu-item>PC</button>
+        </mat-menu>
+      </li>
+  
+      <li class="search-box">
+        <input type="text" placeholder="Chercher un produit ou une catégorie..."  (input)="Search()">
+        <mat-icon class="bool">search</mat-icon>
+  
+      </li>
+      <li>
+        <a href="#" routerLink="notification">
+          <mat-icon>notifications_active</mat-icon>
+          Notifications
+        </a>
+      </li>
+      <li>
+        <a href="#" routerLink="maSelection">
+          <mat-icon>favorite</mat-icon>
+          Ma sélection
+        </a>
+      </li>
+      <li *ngIf="!isLoggedIn">
+        <a mat-button [routerLink]="'/ConnexionUser'" class="conn">
+          <mat-icon>person</mat-icon>
+          Connexion
+        </a> 
+      </li>
+    </ul>
+  </div>
+  
+  
+        </div>
+      </div>
+    </div>
+  </header>
+  

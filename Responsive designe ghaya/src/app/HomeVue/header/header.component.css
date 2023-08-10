@@ -1,0 +1,229 @@
+header {
+    padding: 10px 0;
+    background-color: blueviolet;
+    z-index: 100;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Logo */
+  .logo {
+    color: #fff;
+  }
+  
+  .logo mat-icon {
+    vertical-align: middle;
+  }
+  
+  /* Menu Styles */
+  .menu {
+    margin-top: 12px;
+    text-align: right; /* Pour aligner le contenu à droite */
+  }
+  
+  .menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .menu li{
+    color: #fff;
+  }
+  
+  .menu ul li {
+    display: inline-block;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    padding: 13px;
+  }
+  
+  
+  .menu ul li a mat-icon {
+    margin-right: 5px; /* Espace entre l'icône et le texte du lien */
+    vertical-align: middle; /* Alignement vertical au centre pour l'icône */
+    font-size: 20px; /* Ajuster la taille de l'icône selon vos préférences */
+  }
+  .menu ul li a:hover {
+    color: rgb(23, 8, 38);
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+  }
+  
+  /* ... Vos styles existants ... */
+  
+  .search-box {
+    position: relative; /* Permettra de positionner l'icône à l'intérieur de l'input */
+    display: inline-block; /* Pour que l'input soit sur la même ligne que les liens */
+    vertical-align: middle; /* Pour aligner l'input au centre verticalement */
+    background-color: #fff; /* Couleur de fond de la zone de recherche */
+    border-radius: 4px;
+    padding: 5px; /* Ajuster le padding selon vos préférences */
+    width: 200px; /* Ajuster la largeur de la zone de recherche selon vos préférences */
+  }
+  
+  .search-box input {
+    flex: 1; /* Permet à l'input de s'étendre pour occuper tout l'espace restant */
+    border: none;
+    outline: none;
+    background-color: transparent; /* Fond transparent pour l'input */
+    font-size: 10px; /* Ajuster la taille de la police selon vos préférences */
+    color: #000; /* Couleur du texte dans l'input */
+    padding-right: 80px; /* Espace à droite de l'input pour laisser de la place à l'icône */
+  }
+  
+  .search-box mat-icon {
+    position: absolute; /* Permettra de positionner l'icône à l'intérieur de l'input */
+    top: 50%; /* Déplacer l'icône verticalement au milieu de l'input */
+    right: 10px; /* Déplacer l'icône à droite de l'input */
+    transform: translateY(-50%); /* Ajuster la position verticale de l'icône */
+    font-size: 20px; /* Ajuster la taille de l'icône de recherche selon vos préférences */
+    color: #000;
+  }
+  /* Styles pour le conteneur du menu utilisateur */
+  .user-menu {
+    position: absolute;
+    top: 0;
+    right: -100px; /* Ajustez la distance du côté droit du header selon vos préférences */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Styles pour le bouton utilisateur */
+  .user-menu button {
+    margin-left: 10px; /* Espace entre l'icône et le nom d'utilisateur */
+    color: #fff; /* Couleur du texte */
+    background-color: transparent; /* Fond transparent pour le bouton */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px; /* Ajuster la taille de la police selon vos préférences */
+  }
+  
+  /* Styles pour l'icône utilisateur */
+  .user-menu mat-icon {
+    vertical-align: middle; /* Alignement vertical au centre pour l'icône */
+    font-size: 24px; /* Ajuster la taille de l'icône selon vos préférences */
+  }
+  
+  /* Styles pour le menu déroulant utilisateur */
+  .mat-menu-content {
+    background-color: #f0f0f0; /* Couleur de fond du menu déroulant */
+  }
+  
+  /* Styles pour les éléments du menu déroulant utilisateur */
+  .mat-menu-item {
+    font-size: 14px; /* Ajuster la taille de la police selon vos préférences */
+    color: #333; /* Couleur du texte dans le menu déroulant */
+  }
+  
+  /* Styles pour les éléments du menu déroulant utilisateur au survol */
+  .mat-menu-item:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+  }
+  
+  /* ... Vos styles existants pour le menu mobile ... */
+  
+  /* Mobile Menu */
+  @media only screen and (max-width: 999px) {
+    .menu {
+      position: fixed;
+      right: -280px;
+      top: -64px;
+      width: 280px;
+      height: 100%;
+      background-color: blueviolet;
+      z-index: 9999;
+    }
+  
+    .menu ul li a {
+      display: block;
+      text-align: left;
+      padding: 10px 0 10px 26px;
+      border-bottom: 1px solid #312f2f;
+      margin-bottom: 40px;
+    }
+  
+    .search-box {
+      display: block;
+      text-align: left;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+  
+    .search-box input {
+      padding: 8px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      outline: none;
+      font-size: 12px;
+      width: 100%;
+    }
+  
+    .search-box i {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      color: #aaa;
+      cursor: pointer;
+    }
+  
+    .menu-icon {
+      display: inline-block;
+      position: relative;
+      cursor: pointer; /* Ajout d'un curseur pointer pour indiquer que l'élément est cliquable */
+    }
+    
+    .menu-icon span {
+      width: 32px;
+      height: 3px;
+      background-color: #fff;
+      display: block;
+      transition: 0.2s ease-in-out;
+    }
+    
+    .menu-icon span:nth-child(2) {
+      margin: 4px 0;
+    }
+    
+    /* Les styles pour la classe qui indique que l'icône de menu est ouverte */
+    .menu-icon.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-icon.open span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-icon.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+  
+  
+    .menu ul li {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .menuClass {
+      right: 0;
+      top: 0;
+      transition: 0.4s ease-in-out;
+    }
+    .user-menu {
+      position: relative;
+      top: 0;
+      right: 0;
+      margin-left: auto; /* Pour placer le menu utilisateur à droite du header */
+      padding-right: 10px; /* Ajuster l'espace entre le menu utilisateur et le bord droit du header */
+    }
+  }

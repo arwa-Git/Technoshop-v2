@@ -16,6 +16,19 @@ import { ParametrecompteComponent } from './DashboardVue/settingsVendeurAdmin/pa
 import { ParametreconsommateurComponent } from './DashboardVue/ConsumerComponents/parametreconsommateur/parametreconsommateur.component';
 import { ParametreboutiqueComponent } from './DashboardVue/settingsVendeurAdmin/parametreboutique/parametreboutique.component';
 import { MaSelectionComponent } from './DashboardVue/ConsumerComponents/ma-selection/ma-selection.component';
+import { HeaderComponent } from './HomeVue/header/header.component';
+import { BannerComponent } from './HomeVue/HomeSection/banner/banner.component';
+import { FooterComponent } from './HomeVue/HomeSection/footer/footer.component';
+import { CommentComponent } from './HomeVue/HomeSection/commentaire/comment.component';
+import { Section3Component } from './HomeVue/HomeSection/section3/section3.component';
+import { BestSellingComponent } from './HomeVue/HomeSection/best-selling/best-selling.component';
+import { HomeComponent } from './HomeVue/HomeSection/home/home.component';
+
+
+
+
+
+
 
 const routes: Routes = [
  // {path:'',component:AppComponent},
@@ -25,9 +38,23 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'forgotPassword',component:ForgotPasswordComponent},
   {path:'reset',component:ConfirmedPasswordComponent},
+  {path:'header',component:HeaderComponent},
+  {path:'banner',component:BannerComponent},
+  {path:'footer',component:FooterComponent},
+  {path:'commentaire',component:CommentComponent},
+  {path:'section',component:Section3Component},
+  {path:'bestselling',component:BestSellingComponent},
+  {path:'home',component:HomeComponent},
+
+
+
+
+
+
+
 
   {
-    path: '',
+    path: 'dashboard',
     component: DashboardComponent,
     children: [
       // gerer vendeur un seul component btbi3to 
