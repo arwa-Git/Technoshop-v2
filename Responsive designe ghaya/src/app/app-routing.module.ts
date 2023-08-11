@@ -31,7 +31,6 @@ import { HomeComponent } from './HomeVue/HomeSection/home/home.component';
 
 
 const routes: Routes = [
- // {path:'',component:AppComponent},
   {path:'ConnexionUser',component:ConnexionUserComponent},
   {path:'RegistrationUser',component:RegistrationUserComponent},
   {path:'ConnexionAdmin',component:ConnexionAdminComponent},
@@ -58,28 +57,28 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       // gerer vendeur un seul component btbi3to 
-      { path: 'gerervendeur', component: GerervendeurComponent },
+      { path: 'dashboard/gerervendeur', component: GerervendeurComponent },
    //   { path: '', redirectTo: 'gererProduct', pathMatch: 'full' },
       // gerer product 
       {
-        path: 'gererProduct',
+        path: 'dashboard/gererProduct',
         component: GererComponent,
         children: [
-          { path: 'ajouter', component: AjouterComponent },
-          { path: 'modifier/:id', component: ModifierComponent },
-          { path: 'consulter', component: ConsulterComponent },
+          { path: 'dashboard/gererProduct/ajouter', component: AjouterComponent },
+          { path: 'dashboard/gererProduct/modifier/:id', component: ModifierComponent },
+          { path: 'dashboard/gererProduct/consulter', component: ConsulterComponent },
         ],
       },
       { path: 'modifier/:id', component: ModifierComponent },
       { path: 'consulter', component: ConsulterComponent },
       { path: 'ajouter', component: AjouterComponent },
-      { path: 'parametre', component: ParametrecompteComponent },
+      { path: 'dashboard/parametre', component: ParametrecompteComponent },
       {
-        path: 'parametreconsommateur',
+        path: 'dashboard/parametreconsommateur',
         component: ParametreconsommateurComponent,
       },
-      { path: 'parametre-boutique', component: ParametreboutiqueComponent },
-      { path: 'ma-selection', component: MaSelectionComponent },
+      { path: 'dashboard/parametre-boutique', component: ParametreboutiqueComponent },
+      { path: 'dashboard/ma-selection', component: MaSelectionComponent },
     ],
   },
 ];
