@@ -58,7 +58,7 @@ export class ConfirmedPasswordComponent implements OnInit {
 
         }
       );
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/ConnexionUser']);
 //      console.log("2");
     }
     
