@@ -1,15 +1,21 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import{BreakpointObserver} from '@angular/cdk/layout'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  userName!:any;
   
   @ViewChild(MatSidenav) sidenav !:MatSidenav;
-  constructor(private observer :BreakpointObserver){}
+  constructor(private observer :BreakpointObserver , private router : Router){}
+  ngOnInit(): void {
+     // Retrieve the user's name from localStorage
+     this.userName = localStorage.getItem('userName');
+  }
   ngAfterViewInit(){
     this.observer.observe(['(max-width : 800px)']).subscribe((res)=>{
       if(res.matches){
@@ -24,5 +30,15 @@ export class DashboardComponent {
   changeretat( _etat : string){
     this.etat=_etat;
   }
-  
+
+  logout() {
+    // Clear the userName from localStorage
+    localStorage.removeItem('userName');
+
+    // Clear the userName from localStorage
+    localStorage.removeItem('Token');
+    
+    // Navigate to the home page
+    this.router.navigate(['/home']);
+  }
 }

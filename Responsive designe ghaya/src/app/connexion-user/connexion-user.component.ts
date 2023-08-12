@@ -4,6 +4,7 @@ import { UserService } from '../Services/UserService/user.service';
 import { UserLogin } from '../classes/UserLogin';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../classes/User';
 
 @Component({
   selector: 'app-connexion-user',
@@ -11,6 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./connexion-user.component.css']
 })
 export class ConnexionUserComponent {
+    user:any;
     variable !: string
   userLogin:UserLogin = new UserLogin();
   constructor(private fb :FormBuilder,private userService:UserService,private route:Router,private httpClient : HttpClient){}
@@ -29,20 +31,33 @@ export class ConnexionUserComponent {
     }else if(this.pwdC?.hasError('pattern') || this.pwdC?.hasError('required')){
         this.msg="password should contain at least 8 caracters "
       }
-    
-    
       if (this.msg) {
         alert(this.msg);
       } else{
         //Login To DB
        // this.userService.Login(this.userLogin).subscribe();
-        console.log( this.userService.Login(this.userLogin).subscribe(
+        this.userService.Login(this.userLogin).subscribe(
           response => {
             const token = localStorage.getItem('Token');
               // console.log("Logged successfully");
               //console.log(token);
-              alert("Logged successfully !");
-              this.route.navigate(['/dashboard']);
+              console.log(this.userLogin.email)
+              this.userService.getUserByEmail(this.userLogin.email)
+              .subscribe(
+                (user: User) => {
+                  this.user = user;
+                  console.log(user.name);
+
+                  // Store the user's name in localStorage
+                  localStorage.setItem('userName', this.user.name);
+            
+                  // Pass the user's name as a parameter to the dashboard route
+                  this.route.navigate(['/dashboard']);
+                },
+                (error) => {
+                  console.error('Error fetching user:', error);
+                }
+              );
              // const token = localStorage.getItem('Token');
               const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
              
@@ -53,9 +68,6 @@ export class ConnexionUserComponent {
                   console.log(response);          
                 },
                 error => {
-                //  console.error(error);
-                  //console.log(token);
-                  //console.log(headers);
                   this.variable = error.error.t
     
                 }
@@ -66,7 +78,7 @@ export class ConnexionUserComponent {
             // Handle the error response
             //this.loginError = error.message;
           }
-        ));
+        );
     }    
   }
 }

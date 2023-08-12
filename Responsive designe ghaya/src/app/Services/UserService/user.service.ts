@@ -15,6 +15,7 @@ export class UserService {
   baseUrl = "http://localhost:6002";
   forgotUrl = "http://localhost:6002/forgotPassword";
   apigetUsersUrl ="http://localhost:6002/api/users";
+  getUserByEmailUrl = "http://localhost:6002/api/user";
   constructor(private httpClient : HttpClient) { }
 
 
@@ -27,6 +28,10 @@ export class UserService {
     return this.httpClient.get<User[]>(this.apigetUsersUrl);
   }
 
+  getUserByEmail(email: string): Observable<User> {
+    const url = `${this.getUserByEmailUrl}?email=${email}`;
+    return this.httpClient.get<User>(url);
+  }
 
 
   //Post Methode to Login
