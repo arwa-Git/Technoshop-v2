@@ -9,12 +9,16 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   userName!:any;
+  role !:any;
   
   @ViewChild(MatSidenav) sidenav !:MatSidenav;
   constructor(private observer :BreakpointObserver , private router : Router){}
   ngOnInit(): void {
      // Retrieve the user's name from localStorage
      this.userName = localStorage.getItem('userName');
+
+     // Retrieve the user's role from localStorage
+     this.role = localStorage.getItem('role');
   }
   ngAfterViewInit(){
     this.observer.observe(['(max-width : 800px)']).subscribe((res)=>{
@@ -38,6 +42,10 @@ export class DashboardComponent implements OnInit {
     // Clear the userName from localStorage
     localStorage.removeItem('Token');
     
+    // Clear the userName from localStorage
+    localStorage.removeItem('role');
+
+
     // Navigate to the home page
     this.router.navigate(['/home']);
   }

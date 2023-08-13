@@ -50,6 +50,9 @@ export class ConnexionUserComponent {
 
                   // Store the user's name in localStorage
                   localStorage.setItem('userName', this.user.name);
+
+                  // Store the user's role Id in localStorage
+                  localStorage.setItem('role', this.user.role);
             
                   // Pass the user's name as a parameter to the dashboard route
                   this.route.navigate(['/dashboard']);
