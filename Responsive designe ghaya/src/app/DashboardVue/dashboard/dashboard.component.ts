@@ -47,6 +47,6 @@ export class DashboardComponent implements OnInit {
 
 
     // Navigate to the home page
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
   }
 }

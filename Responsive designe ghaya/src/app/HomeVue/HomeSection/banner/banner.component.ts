@@ -12,8 +12,8 @@ export class BannerComponent implements OnInit {
   ngOnInit() {
   }
   images = [
-    "../assets/images/pexels-photo-5632402.jpeg",
-    "../assets/images/pexels-photo-5632402.jpeg",
-    "../assets/images/pexels-photo-5632402.jpeg"
+    "../assets/images/e-commerce1.avif",
+    "../assets/images/e-commerce2.avif",
+    "../assets/images/e-commerce3.avif"
   ];
 }

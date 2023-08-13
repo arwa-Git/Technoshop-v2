@@ -45,12 +45,13 @@ const routes: Routes = [
   {path:'commentaire',component:CommentComponent},
   {path:'section',component:Section3Component},
   {path:'bestselling',component:BestSellingComponent},
-  {path:'home',component:HomeComponent},
+  {path:'',component:HomeComponent},
+
 
   {
     path: 'filter',component: FilterComponent
   },
-  { path: '', redirectTo: 'filter', pathMatch: 'full' },
+ /* { path: '', redirectTo: 'filter', pathMatch: 'full' },*/
   { path: 'produit/:id', component: ProductredirectpageComponent },
 
 
