@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div  style="display: flex; flex-direction: row;">
+      <img style="height: 70px ;width: 100px ;" [src]="datars.imgURL" alt="">
+      <div style="display: flex ; flex-direction: column;">
+        <p>{{datars.nom}}</p>
+        <p>{{datars.prix | currency: "DNT"}} </p>
+      </div>  
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div  class="col-sm-2 col-md-2 col-lg-2" style="width: 100%;">
+      <label mat-label >Informe-moi dès que le prix atteint</label>
+      <input matInput type="number" name="prixAttendu" class="form-control">
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>ajouter</button>
+    <button mat-button mat-dialog-close>annuler</button>
+  </mat-card-actions>
+</mat-card>

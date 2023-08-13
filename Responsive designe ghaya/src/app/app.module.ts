@@ -37,7 +37,24 @@ import { Section3Component } from './HomeVue/HomeSection/section3/section3.compo
 import { BestSellingComponent } from './HomeVue/HomeSection/best-selling/best-selling.component';
 import { HomeComponent } from './HomeVue/HomeSection/home/home.component';
 import { FooterComponent } from './HomeVue/HomeSection/footer/footer.component';
-
+import { ProductBoxComponent } from './FilterPage/Filter/product-box/product-box.component';
+import { AlertFormComponent } from './FilterPage/Filter/alert-form/alert-form.component';
+import { FilterComponent } from './FilterPage/Filter/filter/filter.component';
+import { CardProduitsimilaireComponent } from './FilterPage/RedirectFilterpageComponents/card-produitsimilaire/card-produitsimilaire.component';
+import { PopupAvisComponent } from './FilterPage/RedirectFilterpageComponents/popup-avis/popup-avis.component';
+import { ProductredirectpageComponent } from './FilterPage/RedirectFilterpageComponents/productredirectpage/productredirectpage.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatTableModule } from '@angular/material/table';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -60,6 +77,12 @@ import { FooterComponent } from './HomeVue/HomeSection/footer/footer.component';
     BestSellingComponent,
     HomeComponent,
     FooterComponent,
+    ProductBoxComponent,
+    AlertFormComponent,
+    FilterComponent,
+    CardProduitsimilaireComponent,
+    PopupAvisComponent,
+    ProductredirectpageComponent,
     ],
   imports: [
     NgbAlertModule,
@@ -85,8 +108,20 @@ import { FooterComponent } from './HomeVue/HomeSection/footer/footer.component';
     MatCardModule,
     MatDialogModule,
     CommonModule,
-    CarouselModule
-   
+    CarouselModule,
+    MatGridListModule,
+    MatExpansionModule,
+    MatTreeModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressBarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent,HeaderComponent,HomeComponent]

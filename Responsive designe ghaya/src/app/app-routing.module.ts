@@ -23,6 +23,8 @@ import { CommentComponent } from './HomeVue/HomeSection/commentaire/comment.comp
 import { Section3Component } from './HomeVue/HomeSection/section3/section3.component';
 import { BestSellingComponent } from './HomeVue/HomeSection/best-selling/best-selling.component';
 import { HomeComponent } from './HomeVue/HomeSection/home/home.component';
+import { FilterComponent } from './FilterPage/Filter/filter/filter.component';
+import { ProductredirectpageComponent } from './FilterPage/RedirectFilterpageComponents/productredirectpage/productredirectpage.component';
 
 
 
@@ -44,6 +46,12 @@ const routes: Routes = [
   {path:'section',component:Section3Component},
   {path:'bestselling',component:BestSellingComponent},
   {path:'home',component:HomeComponent},
+
+  {
+    path: 'filter',component: FilterComponent
+  },
+  { path: '', redirectTo: 'filter', pathMatch: 'full' },
+  { path: 'produit/:id', component: ProductredirectpageComponent },
 
 
 
