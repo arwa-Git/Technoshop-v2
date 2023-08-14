@@ -46,11 +46,7 @@ const routes: Routes = [
   {path:'section',component:Section3Component},
   {path:'bestselling',component:BestSellingComponent},
   {path:'',component:HomeComponent},
-
-
-  {
-    path: 'filter',component: FilterComponent
-  },
+  {path: 'filter',component: FilterComponent},
  /* { path: '', redirectTo: 'filter', pathMatch: 'full' },*/
   { path: 'produit/:id', component: ProductredirectpageComponent },
 
@@ -65,29 +61,28 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      // gerer vendeur un seul component btbi3to 
-      { path: 'dashboard/gerervendeur', component: GerervendeurComponent },
-   //   { path: '', redirectTo: 'gererProduct', pathMatch: 'full' },
-      // gerer product 
+      //gerer vendeur un seul component btbi3to 
+      { path: 'gerervendeur', component: GerervendeurComponent },
+      { path: 'modifier/:id', component: ModifierComponent },
       {
-        path: 'dashboard/gererProduct',
+        path: 'gererProduct',
         component: GererComponent,
         children: [
-          { path: 'dashboard/gererProduct/ajouter', component: AjouterComponent },
-          { path: 'dashboard/gererProduct/modifier/:id', component: ModifierComponent },
-          { path: 'dashboard/gererProduct/consulter', component: ConsulterComponent },
+          { path: 'ajouter', component: AjouterComponent },
+         
+          { path: 'consulter', component: ConsulterComponent },
         ],
       },
-      { path: 'modifier/:id', component: ModifierComponent },
+      /*{ path: 'modifier/:id', component: ModifierComponent },
       { path: 'consulter', component: ConsulterComponent },
-      { path: 'ajouter', component: AjouterComponent },
-      { path: 'dashboard/parametre', component: ParametrecompteComponent },
+      { path: 'ajouter', component: AjouterComponent },*/
+      { path: 'parametre', component: ParametrecompteComponent },
       {
-        path: 'dashboard/parametreconsommateur',
+        path: 'parametreconsommateur',
         component: ParametreconsommateurComponent,
       },
-      { path: 'dashboard/parametre-boutique', component: ParametreboutiqueComponent },
-      { path: 'dashboard/ma-selection', component: MaSelectionComponent },
+      { path: 'parametre-boutique', component: ParametreboutiqueComponent },
+      { path: 'ma-selection', component: MaSelectionComponent },
     ],
   },
 ];

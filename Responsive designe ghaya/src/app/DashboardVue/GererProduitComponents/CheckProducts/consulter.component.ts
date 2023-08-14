@@ -60,7 +60,8 @@ export class ConsulterComponent {
     const confirmDelete = window.confirm('Are you sure you want to update this product?');
     if (confirmDelete) {
     const productId = product.id;
-    this.router.navigate(['/modifier', product.id]);
+    console.log(product.id);
+    this.router.navigate(['dashboard','modifier', product.id]);
     }
   }
   

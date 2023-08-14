@@ -91,8 +91,8 @@ export class ModifierComponent implements OnInit{
         (res) => {
           alert("Product has been Updated Succefully !");
            // Refresh the page after successful response
-           this.router.navigate(['/gererProduct']);
-
+           this.router.navigate(['dashboard','gererProduct']);
+          //window.location.reload();
         },
         (error) => {
           alert("An error occurred");
