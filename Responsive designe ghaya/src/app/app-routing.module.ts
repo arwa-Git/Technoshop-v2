@@ -78,7 +78,7 @@ const routes: Routes = [
       { path: 'ajouter', component: AjouterComponent },*/
       { path: 'parametre', component: ParametrecompteComponent },
       {
-        path: 'parametreconsommateur',
+        path: 'parametreconsommateur/:email',
         component: ParametreconsommateurComponent,
       },
       { path: 'parametre-boutique', component: ParametreboutiqueComponent },

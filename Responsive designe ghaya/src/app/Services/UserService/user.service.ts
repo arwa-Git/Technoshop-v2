@@ -16,6 +16,7 @@ export class UserService {
   forgotUrl = "http://localhost:6002/forgotPassword";
   apigetUsersUrl ="http://localhost:6002/api/users";
   getUserByEmailUrl = "http://localhost:6002/api/user";
+  deleteUserUrl = "http://localhost:6002/api/deleteByEmail";
   constructor(private httpClient : HttpClient) { }
 
 
@@ -77,5 +78,10 @@ export class UserService {
     console.log(url);
     alert("An email verification link will be sent to you")
     return this.httpClient.get<string>(`${this.forgotUrl}/${adress}`);
+  }
+
+  deleteUserByEmail(email: string): Observable<any> {
+    const url = `${this.deleteUserUrl}/deleteByEmail`;
+    return this.httpClient.delete(this.deleteUserUrl, { params: { email } });
   }
 }

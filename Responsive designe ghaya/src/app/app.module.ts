@@ -55,6 +55,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ParametreconsommateurComponent } from './DashboardVue/ConsumerComponents/parametreconsommateur/parametreconsommateur.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     CardProduitsimilaireComponent,
     PopupAvisComponent,
     ProductredirectpageComponent,
+    ParametreconsommateurComponent
     ],
   imports: [
     NgbAlertModule,

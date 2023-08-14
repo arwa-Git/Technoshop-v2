@@ -46,6 +46,9 @@ export class DashboardComponent implements OnInit {
     localStorage.removeItem('role');
 
 
+    // Clear the UserEmail from localStorage
+    localStorage.removeItem('UserEmail');
+
     // Navigate to the home page
     this.router.navigate(['']);
   }

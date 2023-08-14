@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { client } from '../../model/client.model';
 import { ClientService } from '../../service/client/client.service';
 import { User } from 'src/app/classes/User';
 import { UserService } from 'src/app/Services/UserService/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,9 +15,10 @@ export class GerervendeurComponent implements OnInit {
   searchclients: User[];
   selectedClient: User | null = null;
   role?:string;
-  test?:boolean
+  test?:boolean;
+  email!:any;
 
-  constructor(private clientService: ClientService,private userService:UserService) {
+  constructor(private clientService: ClientService,private userService:UserService , private router:Router) {
     this.clients = [];
     this.searchclients = this.clients;
     
@@ -51,16 +52,25 @@ export class GerervendeurComponent implements OnInit {
   deleteUser(user: User) {
     const confirmDelete = window.confirm('Are you sure you want to delete this user?');
     if (confirmDelete) {
-    const id = user.id;
-     alert(id);
+    this.email = user.email;
+    this.userService.deleteUserByEmail(this.email).subscribe(
+      response => {
+        alert('User deleted successfully');
+        window.location.reload(); // Reload the window
+      },
+      error => {
+        console.error('Error deleting user', error);
+      }
+    );
     }
+    window.location.reload(); // Reload the window
   }
 
   handleUpdateClick(user: User) {
     const confirmDelete = window.confirm('Are you sure you want to update this user?');
     if (confirmDelete) {
-    const id = user.id;
-     alert(id);
+      const email = user.email;
+      this.router.navigate(['dashboard','parametreconsommateur' , email]);
     }
   }
 

@@ -1,37 +1,27 @@
-   <div class="form">
-     <h3>Parametre</h3>
-    <form class="" >
-
+<div class="form">
+  <h3>Settings</h3>
+  <form class="container">
+    <div class="input">
       <div class="inputsFields">
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom"  name="nom" required />
+        <label for="nom">Name:</label>
+        <input type="text" id="nom" name="nom" [(ngModel)] = "user.name" required />
       </div>
-      <div class=" inputsFields">
-        <label for="prenom">Prénom:</label>
-        <input type="text" id="prenom" name="prenom" required />
-      </div>
-      <div class=" inputsFields">
-        <label for="adresse">Adresse:</label>
-        <input type="text" id="adresse"  name="adresse" required />
-      </div>
-      <div class=" inputsFields">
-        <label for="telephone">Téléphone:</label>
-        <input type="text" id="telephone"  name="telephone" required />
-      </div>
-      <div class=" inputsFields">
+      <div class="inputsFields">
         <label for="Email">Email:</label>
-        <input type="text" id="Email"  name="Email" required />
+        <input type="text" id="Email" name="Email" [(ngModel)] = "user.email" required />
       </div>
       <div class="inputsFields">
-        <label for="motDePasse">Mot de passe:</label>
-        <input type="password" id="motDePasse"  name="motDePasse" required />
+        <label for="telephone">Phone Number:</label>
+        <input type="text" id="phone" name="telephone" [(ngModel)] = "user.phone" required />
       </div>
-      
-      <div class="buttons-container">
-        <button class="update-button" (click)="handleUpdate()">Modifier le compte</button>
-        <button class="delete-button" (click)="handleDelete()">Supprimer le compte</button>
+      <div class="inputsFields">
+        <label for="adresse">Role:</label>
+        <input type="text" id="adresse" name="role" [(ngModel)] = "this.UserRole"   required />
       </div>
-    </form>
-
-   </div>
-  
+    </div>
+    <div class="buttons-container">
+      <button class="update-button" (click)="handleUpdate()">Update Account</button>
+      <button class="delete-button" *ngIf="role != 2" (click)="handleDelete()">Delete Account</button>
+    </div>
+  </form>
+</div>
