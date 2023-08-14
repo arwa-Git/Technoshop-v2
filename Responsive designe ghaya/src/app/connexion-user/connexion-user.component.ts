@@ -72,7 +72,6 @@ export class ConnexionUserComponent {
                 },
                 error => {
                   this.variable = error.error.t
-    
                 }
               );
           },

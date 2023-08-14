@@ -25,12 +25,28 @@ export class UserService {
   }
 
   getAllUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.apigetUsersUrl);
+    
+     // Get the token from localStorage using the provided token name
+     const token = localStorage.getItem('Token');
+
+     // Set up the headers with the token
+     const headers = new HttpHeaders({
+       'Authorization': `Bearer ${token}` // Assuming your API uses Bearer token authentication
+     });
+    return this.httpClient.get<User[]>(this.apigetUsersUrl , {headers});
   }
 
   getUserByEmail(email: string): Observable<User> {
+    
+     // Get the token from localStorage using the provided token name
+     const token = localStorage.getItem('Token');
+
+     // Set up the headers with the token
+     const headers = new HttpHeaders({
+       'Authorization': `Bearer ${token}` // Assuming your API uses Bearer token authentication
+     });
     const url = `${this.getUserByEmailUrl}?email=${email}`;
-    return this.httpClient.get<User>(url);
+    return this.httpClient.get<User>(url , {headers});
   }
 
 

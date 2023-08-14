@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductDTO } from '../../classes/PoductDTO';
 
@@ -37,18 +37,43 @@ export class ProductService {
   }
 
   getAllProducts(): Observable<ProductDTO[]> {
-    return this.httpClient.get<ProductDTO[]>(this.apigetUrl);
+
+     // Get the token from localStorage using the provided token name
+     const token = localStorage.getItem('Token');
+
+     // Set up the headers with the token
+     const headers = new HttpHeaders({
+       'Authorization': `Bearer ${token}` // Assuming your API uses Bearer token authentication
+     });
+    return this.httpClient.get<ProductDTO[]>(this.apigetUrl , {headers});
   }
 
   
   deleteProduct(product: ProductDTO): Observable<any> {
+    
+     // Get the token from localStorage using the provided token name
+     const token = localStorage.getItem('Token');
+
+     // Set up the headers with the token
+     const headers = new HttpHeaders({
+       'Authorization': `Bearer ${token}` // Assuming your API uses Bearer token authentication
+     });
     const url = `${this.apideleteUrl}/${product.id}`;
-    return this.httpClient.delete<any>(url);
+    return this.httpClient.delete<any>(url , {headers});
   }
   
   
   getProductById(id:String):Observable<ProductDTO>{
-    return this.httpClient.get<ProductDTO>(`${this.getproduct}/${id}`);
+    
+     // Get the token from localStorage using the provided token name
+     const token = localStorage.getItem('Token');
+
+     // Set up the headers with the token
+     const headers = new HttpHeaders({
+       'Authorization': `Bearer ${token}` // Assuming your API uses Bearer token authentication
+     });
+
+    return this.httpClient.get<ProductDTO>(`${this.getproduct}/${id}` , {headers});
   }
 
   updateProduct(id:string , productData: any, imageFile: File): Observable<any> {
