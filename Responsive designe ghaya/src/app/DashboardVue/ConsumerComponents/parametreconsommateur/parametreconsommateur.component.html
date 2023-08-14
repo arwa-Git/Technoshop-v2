@@ -14,10 +14,17 @@
         <label for="telephone">Phone Number:</label>
         <input type="text" id="phone" name="telephone" [(ngModel)] = "user.phone" required />
       </div>
-      <div class="inputsFields">
-        <label for="adresse">Role:</label>
-        <input type="text" id="adresse" name="role" [(ngModel)] = "this.UserRole"   required />
+      <!-- Add some spacing here -->
+      <div class="spacing"></div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Role</label>
+        <select class="form-select" id="inputGroupSelect01" [(ngModel)]="user.Role" name="userRole">
+          <option value="seller">Seller</option>
+          <option value="consumer">Consumer</option>
+        </select>
       </div>
+      
+      
     </div>
     <div class="buttons-container">
       <button class="update-button" (click)="handleUpdate()">Update Account</button>

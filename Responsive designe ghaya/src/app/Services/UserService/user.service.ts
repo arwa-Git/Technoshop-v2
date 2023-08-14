@@ -80,8 +80,16 @@ export class UserService {
     return this.httpClient.get<string>(`${this.forgotUrl}/${adress}`);
   }
 
+
+
+
   deleteUserByEmail(email: string): Observable<any> {
     const url = `${this.deleteUserUrl}/deleteByEmail`;
     return this.httpClient.delete(this.deleteUserUrl, { params: { email } });
+  }
+
+  updateUser(email: string, updatedUser: any): Observable<any> {
+    const url = `${this.baseUrl}/api/UpdateUser/${email}`;
+    return this.httpClient.put(url, updatedUser);
   }
 }

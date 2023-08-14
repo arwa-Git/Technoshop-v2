@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/Services/UserService/user.service';
+import { UpdatedUser } from 'src/app/classes/UpdatedUser';
 
 @Component({
   selector: 'app-parametreconsommateur',
@@ -16,15 +17,18 @@ export class ParametreconsommateurComponent implements OnInit{
   motDePasse: string = '';
   user!:any;
   UserRole!:any;
+  updatedUser:UpdatedUser = new UpdatedUser();
+  userEmail!:any;
 
 
-  constructor(private route: ActivatedRoute , private userService:UserService) {}
+
+  constructor(private route: ActivatedRoute , private userService:UserService ,private router:Router) {}
 
 
 
   ngOnInit(): void {
-    const userEmail = this.route.snapshot.params['email'];
-    this.userService.getUserByEmail(userEmail).subscribe(
+    this.userEmail = this.route.snapshot.params['email'];
+    this.userService.getUserByEmail(this.userEmail).subscribe(
       response => {
         this.user = response;
         if (this.user.role === 0) {
@@ -51,10 +55,20 @@ export class ParametreconsommateurComponent implements OnInit{
 
   handleUpdate() {
     if (window.confirm('Êtes-vous sûr de vouloir modifier votre compte ?')) {
-      // Logique pour mettre à jour le compte ici
-      console.log('Compte modifié avec succès !');
-    } else {
-      console.log('Modification annulée.');
+      this.updatedUser.name = this.user.name;
+      this.updatedUser.email = this.user.email;
+      this.updatedUser.phone = this.user.phone;
+      this.updatedUser.role = this.user.role;
+      this.userService.updateUser(this.userEmail, this.updatedUser)
+        .subscribe(
+          response => {
+            console.log('User updated successfully', response);
+          },
+          error => {
+            console.error('Error updating user', error);
+          }
+        );
+        this.router.navigate(['/dashboard/gerervendeur']);
     }
   }
 
