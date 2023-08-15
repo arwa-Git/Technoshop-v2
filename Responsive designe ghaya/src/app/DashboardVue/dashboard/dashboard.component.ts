@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   userName!:any;
   role !:any;
+  email !:any;
   
   @ViewChild(MatSidenav) sidenav !:MatSidenav;
   constructor(private observer :BreakpointObserver , private router : Router){}
@@ -19,6 +20,9 @@ export class DashboardComponent implements OnInit {
 
      // Retrieve the user's role from localStorage
      this.role = localStorage.getItem('role');
+
+     // Retrieve the user's email from localStorage
+     this.email = localStorage.getItem('UserEmail');
   }
   ngAfterViewInit(){
     this.observer.observe(['(max-width : 800px)']).subscribe((res)=>{

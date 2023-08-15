@@ -47,7 +47,7 @@
         <span>Parametre de boutique </span> 
         </div>    
       </mat-list-item>
-      <mat-list-item *ngIf="role != 2" routerLink="parametreconsommateur" class="hover" (click)="changeretat('Parametre de boutique')">
+      <mat-list-item *ngIf="role != 2" routerLink="parametreconsommateur/ + ${email}" class="hover" (click)="changeretat('Parametre de boutique')">
         <div>
           <mat-icon> manage_accounts</mat-icon>
         <span>Parametre  </span> 

@@ -18,13 +18,13 @@
       <div class="spacing"></div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Role</label>
-        <select class="form-select" id="inputGroupSelect01" [(ngModel)]="user.Role" name="userRole">
-          <option value="seller">Seller</option>
-          <option value="consumer">Consumer</option>
+        <select class="form-select" id="inputGroupSelect01" [(ngModel)]="user.Role" name="userRole" (ngModelChange)="onRoleChange($event)">
+          <option [value]="1" [selected]="user.Role === 1">Seller</option>
+          <option [value]="0" [selected]="user.Role === 0">Consumer</option>
         </select>
       </div>
       
-      
+            
     </div>
     <div class="buttons-container">
       <button class="update-button" (click)="handleUpdate()">Update Account</button>
