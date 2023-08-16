@@ -1,35 +1,28 @@
-<!-- <div class="container">
-  <div class="row">
-      <div class="offset-3 col-6"> -->
-
-          <!-- Div pour le formulaire (aligné à gauche) -->
-          <div class="form-container">
+<div class="form-container">
               <form>
-                  <h1>Parametre du compte</h1>
-
-                  <!-- <div class="separation"></div> -->
+                <h1>Account Settings</h1>
                   
                   <div class="form-group">
-                      <h3>Modifier votre adresse e-mail</h3>
-                      <input type="text" id="Email"  name="Email" required  placeholder="email@gmail.com"/>
+                        <h3>Change Your Email Address</h3>
+                      <input type="text" id="Email"  name="Email" required [(ngModel)] = "user.email" placeholder="email@gmail.com"/>
 
                   </div>
-                  <button class="update-button" (click)="Updatemail()">Mettre à jour l'adresse email</button>
+                  <button class="update-button" (click)="Updatemail()">Update Email Address</button>
 
 
                   <div class="form-group">
-                      <h3>Mettre à jour vos informations personnelles</h3>
+                      <h3>Update Your Personal Information</h3>
 
                       <label for="prenom">Username</label>
 
-                      <input type="text" id="nom"  name="username" required />
+                      <input type="text" id="nom" [(ngModel)] = "user.name" name="username" required />
                   </div>
                   <div class="form-group">
-                      <label for="prenom">Numéro du téléphone</label>
-                      <input type="text" id="telephone"  name="telephone" required />
+                      <label for="prenom">Phone Number</label>
+                      <input type="text" id="telephone" [(ngModel)] = "user.phone" name="telephone" required />
                   </div>
 
-                  <button class="update-button" (click)="Updateinfos()">Mettre à jour les informations personnelles</button>
+                  <button class="update-button" (click)="Updateinfos()">Update Personal Information</button>
 
 
 
@@ -37,22 +30,18 @@
           
 
                   <div class="form-group">
-                      <h3>Modifier le mot de passe</h3>
+                    <h3>Change Password</h3>
 
-                      <label for="motDePasse">Nouveau mot de passe</label>
+                      <label for="motDePasse">New Password</label>
                       <input type="password" id="motDePasse"  class="form-control" name="motDePasse" required placeholder="********" />
                   </div>
-                  <button class="update-button" (click)="Updatemdp()">Mettre à jour le mot de passe</button>
+                  <button class="update-button" (click)="Updatemdp()">Update Password</button>
 
 
                   <!-- Boutons placés dans la même ligne -->
                   <div class="buttons-container">
-                      <button class="update-button" (click)="Updatecompte()">Modifier toutes les informations</button>
-                      <button class="delete-button" (click)="Delete()">Supprimer le compte</button>
+                      <button class="update-button" (click)="Updatecompte()">Update All Information</button>
+                      <button class="delete-button" (click)="Delete()">Delete Account</button>
                   </div>
               </form>
           </div>
-<!-- 
-      </div>
-  </div>
-</div> -->

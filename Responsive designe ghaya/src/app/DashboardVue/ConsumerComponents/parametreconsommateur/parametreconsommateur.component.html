@@ -28,7 +28,7 @@
     </div>
     <div class="buttons-container">
       <button class="update-button" (click)="handleUpdate()">Update Account</button>
-      <button class="delete-button" *ngIf="role != 2" (click)="handleDelete()">Delete Account</button>
+      <button class="delete-button" *ngIf="this.role != 2" (click)="handleDelete()">Delete Account</button>
     </div>
   </form>
 </div>

@@ -1,17 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/Services/UserService/user.service';
 
 @Component({
   selector: 'app-parametrecompte',
   templateUrl: './parametrecompte.component.html',
   styleUrls: ['./parametrecompte.component.css']
 })
-export class ParametrecompteComponent {
+export class ParametrecompteComponent implements OnInit{
   username: string = '';
   telephone: string = '';
   Email: string = '';
   motDePasse: string = '';
+  userEmail!:any;
+  user!:any;
 
-  constructor() {}
+  constructor(private userService:UserService , private router:Router) {}
+  ngOnInit(): void {
+    this.userEmail = localStorage.getItem('UserEmail');
+
+    this.userService.getUserByEmail(this.userEmail).subscribe(
+      response => {
+        this.user = response;
+      },      
+      error => {
+        console.error('Error retrieving user', error);
+      }
+    );
+  }
+
+
+
 
   Updatecompte() {
     if (window.confirm('Êtes-vous sûr de modifier votre compte ?')) {
@@ -24,11 +43,16 @@ export class ParametrecompteComponent {
 
 
   Updatemail() {
-    if (window.confirm('Êtes-vous sûr de modifier votre adresse email ?')) {
-      // Logique pour mettre à jour le compte ici
-      console.log('Adresse email a été  modifié avec succès !');
-    } else {
-      console.log('Modification annulée.');
+    if (window.confirm("Are you sure you want to change your email address?")) {
+      this.userService.updateUserEmail( this.userEmail, this.user.email)
+      .subscribe(res => {
+         console.log(res);
+         localStorage.setItem('UserEmail', this.user.email);
+         // Navigate to the home page
+          this.router.navigate(['']);
+      }, error => {
+          console.error('Error updating email:', error);
+      });
     }
   }
 

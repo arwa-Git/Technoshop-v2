@@ -20,9 +20,13 @@ export class ParametreconsommateurComponent implements OnInit{
   updatedUser:UpdatedUser = new UpdatedUser();
   userEmail!:any;
   Role!:any;
+  role!:any;
 
 
-  constructor(private route: ActivatedRoute , private userService:UserService ,private router:Router) {}
+  constructor(private route: ActivatedRoute , private userService:UserService ,private router:Router) {
+    this.role = localStorage.getItem('role'); // Get the role value from localStorage
+    console.log(this.role)
+  }
 
 
 
@@ -46,15 +50,13 @@ export class ParametreconsommateurComponent implements OnInit{
       }
     );
     this.Role = this.user.Role === 1 ? 'Seller' : 'Consumer';
+  
+  }
+
+
+
  
-  }
-
-
-
-  get role(): number {
-    const roleValue = localStorage.getItem('role'); // Get the role value from localStorage
-    return roleValue ? +roleValue : 0; // Parse the role value as a number
-  }
+ 
 
 
   onRoleChange(selectedRole: number) {

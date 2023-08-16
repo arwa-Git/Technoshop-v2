@@ -92,4 +92,10 @@ export class UserService {
     const url = `${this.baseUrl}/api/UpdateUser/${email}`;
     return this.httpClient.put(url, updatedUser);
   }
+
+  updateUserEmail(email: string, newEmail: string): Observable<User> {
+    const url = `${this.baseUrl}/api/update-email?email=${email}&newEmail=${newEmail}`;
+    return this.httpClient.put<User>(url, null); // Sending null as request body
+}
+
 }
