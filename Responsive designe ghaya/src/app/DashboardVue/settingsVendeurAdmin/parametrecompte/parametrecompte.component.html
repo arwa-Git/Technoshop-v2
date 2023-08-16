@@ -33,7 +33,7 @@
                     <h3>Change Password</h3>
 
                       <label for="motDePasse">New Password</label>
-                      <input type="password" id="motDePasse"  class="form-control" name="motDePasse" required placeholder="********" />
+                      <input type="password" id="motDePasse"  class="form-control" name="motDePasse" [(ngModel)] = "this.password" required placeholder="********" />
                   </div>
                   <button class="update-button" (click)="Updatemdp()">Update Password</button>
 

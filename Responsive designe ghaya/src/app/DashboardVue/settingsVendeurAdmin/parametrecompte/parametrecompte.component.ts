@@ -11,8 +11,8 @@ import { UserService } from 'src/app/Services/UserService/user.service';
 export class ParametrecompteComponent implements OnInit{
   username: string = '';
   telephone: string = '';
-  Email: string = '';
-  motDePasse: string = '';
+  Email !:any;
+  password!:any;
   userEmail!:any;
   user!:any;
 
@@ -34,11 +34,12 @@ export class ParametrecompteComponent implements OnInit{
 
 
   Updatecompte() {
-    if (window.confirm('Êtes-vous sûr de modifier votre compte ?')) {
-      // Logique pour mettre à jour le compte ici
-      console.log(' Votre compte  a été modifié avec succès !');
-    } else {
-      console.log('Modification annulée.');
+    if (window.confirm('Are you sure to update your Account ?')) {
+     /* this.Updatemail();
+      this.UpdateInfos();
+      this.Updatemdp();
+      window.location.reload();
+      */
     }
   }
 
@@ -59,7 +60,7 @@ export class ParametrecompteComponent implements OnInit{
 
   
   UpdateInfos() {
-    if (window.confirm('Êtes-vous sûr de modifier vos informations personnelles ?')) {
+    if (window.confirm('Are you sure you want update your Personal Infos ?')) {
       const email = this.user.email;
       const newUsername = this.user.name;
       const newPhoneNumber = this.user.phone;
@@ -77,13 +78,24 @@ export class ParametrecompteComponent implements OnInit{
   }
 
   Updatemdp() {
-    if (window.confirm('Êtes-vous sûr de modifier votre mot de passe ?')) {
-      // Logique pour mettre à jour le compte ici
-      console.log(' votre mot de passe a été  modifié avec succès !');
-    } else {
-      console.log('Modification annulée.');
+    if (window.confirm('Are you sure you want to update your password ?')) {
+       this.Email = localStorage.getItem('UserEmail');
+      const newUserPasword = this.password;
+      console.log(this.Email);
+      console.log(newUserPasword);
+      this.userService.updatePassword(this.Email, newUserPasword).subscribe(
+        response => {
+          console.log('User information updated successfully.', response);
+        },
+        error => {
+          console.error('Error updating user information:', error);
+        }
+      );
+      alert("password updated successfully !")
+      window.location.reload();
     }
   }
+
 
   Delete() {
     if (window.confirm('Êtes-vous sûr de  supprimer votre compte ?')) {

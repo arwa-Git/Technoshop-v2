@@ -98,21 +98,36 @@ export class UserService {
     return this.httpClient.put<User>(url, null); // Sending null as request body
 }
 
-updateUserInfo(email: string, newUsername: string, newPhoneNumber: string): Observable<any> {
-  const url = `http://localhost:6002/api/update/UsernamePhone`;
-  
-  const token = localStorage.getItem('Token');
-  const headers = new HttpHeaders({
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'Authorization': `Bearer ${token}`
-  });
+    updateUserInfo(email: string, newUsername: string, newPhoneNumber: string): Observable<any> {
+      const url = `http://localhost:6002/api/update/UsernamePhone`;
+      
+      const token = localStorage.getItem('Token');
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `Bearer ${token}`
+      });
 
-  const body = new HttpParams()
-        .set('email', email)
-        .set('newUsername', newUsername)
-        .set('newPhoneNumber', newPhoneNumber);
-  
-  return this.httpClient.post(url, body.toString(), { headers });
-}
+      const body = new HttpParams()
+            .set('email', email)
+            .set('newUsername', newUsername)
+            .set('newPhoneNumber', newPhoneNumber);
+      
+      return this.httpClient.post(url, body.toString(), { headers });
+    }
 
+    updatePassword(email: string, newUserPasword:string): Observable<any> {
+      const url = `http://localhost:6002/api/updatePassword`;
+      
+      const token = localStorage.getItem('Token');
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `Bearer ${token}`
+      });
+    
+      const body = new HttpParams()
+            .set('email', email)
+            .set('newPassword', newUserPasword)
+      
+      return this.httpClient.post(url, body.toString(), { headers });
+    }
 }
