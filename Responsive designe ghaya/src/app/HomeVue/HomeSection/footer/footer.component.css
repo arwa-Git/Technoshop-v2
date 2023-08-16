@@ -1,6 +1,6 @@
 .site-footer
 {
-  background-color:blueviolet;
+  background:linear-gradient(180deg, #5e2ced 0%, #a485fd 100%);/* Fallback color */
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
@@ -72,6 +72,16 @@
 {
   margin:0
 }
+
+.capit-link {
+  color: blue; /* Set the desired color */
+  text-decoration: none; /* Remove the underline */
+}
+
+.capit-link:hover {
+  text-decoration: underline; /* Add underline on hover if desired */
+}
+
 @media (max-width:991px)
 {
   .site-footer [class^=col-]

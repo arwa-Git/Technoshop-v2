@@ -33,6 +33,7 @@
     gap: 50px; 
   }
   
+  
   .form-container {
     flex: 2; 
   }
@@ -49,6 +50,7 @@
   cursor: pointer;
   transition: transform 0.5s;
   }
+
   
   .delete-button {
     background-color: #0d0e1f;

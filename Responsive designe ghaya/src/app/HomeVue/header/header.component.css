@@ -1,6 +1,6 @@
 header {
     padding: 10px 0;
-    background-color: blueviolet;
+    background: linear-gradient(180deg, #5e2ced 0, #a485fd 100%);
     z-index: 100;
   }
   
