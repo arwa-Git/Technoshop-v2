@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient , HttpHeaders } from '@angular/common/http';
+import { HttpClient , HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { User } from '../../classes/User';
 import { UserLogin } from '../../classes/UserLogin';
@@ -96,6 +96,23 @@ export class UserService {
   updateUserEmail(email: string, newEmail: string): Observable<User> {
     const url = `${this.baseUrl}/api/update-email?email=${email}&newEmail=${newEmail}`;
     return this.httpClient.put<User>(url, null); // Sending null as request body
+}
+
+updateUserInfo(email: string, newUsername: string, newPhoneNumber: string): Observable<any> {
+  const url = `http://localhost:6002/api/update/UsernamePhone`;
+  
+  const token = localStorage.getItem('Token');
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': `Bearer ${token}`
+  });
+
+  const body = new HttpParams()
+        .set('email', email)
+        .set('newUsername', newUsername)
+        .set('newPhoneNumber', newPhoneNumber);
+  
+  return this.httpClient.post(url, body.toString(), { headers });
 }
 
 }

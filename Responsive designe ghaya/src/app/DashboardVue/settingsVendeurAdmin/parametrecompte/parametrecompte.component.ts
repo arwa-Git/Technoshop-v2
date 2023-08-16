@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/UserService/user.service';
@@ -15,7 +16,7 @@ export class ParametrecompteComponent implements OnInit{
   userEmail!:any;
   user!:any;
 
-  constructor(private userService:UserService , private router:Router) {}
+  constructor(private userService:UserService , private router:Router , private http: HttpClient) {}
   ngOnInit(): void {
     this.userEmail = localStorage.getItem('UserEmail');
 
@@ -56,12 +57,22 @@ export class ParametrecompteComponent implements OnInit{
     }
   }
 
-  Updateinfos() {
+  
+  UpdateInfos() {
     if (window.confirm('Êtes-vous sûr de modifier vos informations personnelles ?')) {
-      // Logique pour mettre à jour le compte ici
-      console.log(' informations personnelles ont été  modifié avec succès !');
-    } else {
-      console.log('Modification annulée.');
+      const email = this.user.email;
+      const newUsername = this.user.name;
+      const newPhoneNumber = this.user.phone;
+
+      this.userService.updateUserInfo(email, newUsername, newPhoneNumber).subscribe(
+        response => {
+          console.log('User information updated successfully.', response);
+        },
+        error => {
+          console.error('Error updating user information:', error);
+        }
+      );
+      window.location.reload();
     }
   }
 
