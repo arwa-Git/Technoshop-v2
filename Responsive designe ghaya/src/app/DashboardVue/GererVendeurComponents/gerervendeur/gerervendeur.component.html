@@ -27,7 +27,7 @@
       <h5 class="card-title">{{ selectedClient.name }}</h5>
       <p class="card-text">Email: {{ selectedClient.email }}</p>
       <p class="card-text">Phone: {{ selectedClient.phone }}</p>
-      <p><strong>Role:</strong> {{ selectedClient.role === 0 ? 'Consumer' : 'Seller' }}</p>
+      <p><strong>Role:</strong>    {{ selectedClient.role === 0 ? 'Consumer' : (selectedClient.role === 1 ? 'Seller' : 'Admin') }}</p>
       <div class="btn-group" role="group" aria-label="Action buttons">
         <button class="btn btn-danger" (click)="deleteUser(selectedClient)">Delete User</button>
         <button class="btn btn-success ml-2" (click)="handleUpdateClick(selectedClient)">Update Info</button>

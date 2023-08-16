@@ -46,9 +46,11 @@ export class ParametreconsommateurComponent implements OnInit{
       }
     );
     this.Role = this.user.Role === 1 ? 'Seller' : 'Consumer';
-
-  console.log(this.role) 
+ 
   }
+
+
+
   get role(): number {
     const roleValue = localStorage.getItem('role'); // Get the role value from localStorage
     return roleValue ? +roleValue : 0; // Parse the role value as a number
@@ -56,13 +58,15 @@ export class ParametreconsommateurComponent implements OnInit{
 
 
   onRoleChange(selectedRole: number) {
-    this.updatedUser.role  =  selectedRole;
+    this.user.role  =  selectedRole;
   }
+
   handleUpdate() {
     if (window.confirm('Êtes-vous sûr de vouloir modifier votre compte ?')) {
       this.updatedUser.name = this.user.name;
       this.updatedUser.email = this.user.email;
       this.updatedUser.phone = this.user.phone;
+      this.updatedUser.role = this.user.role;
       this.userService.updateUser(this.userEmail, this.updatedUser)
         .subscribe(
           response => {

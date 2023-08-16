@@ -53,7 +53,7 @@
         <span>Parametre  </span> 
         </div>    
       </mat-list-item>
-      <mat-list-item *ngIf="role != 1" class="hover" routerLink="ma-selection" (click)="changeretat('Ma selection')"> 
+      <mat-list-item *ngIf="role == 0" class="hover" routerLink="ma-selection" (click)="changeretat('Ma selection')"> 
         <div>
         <mat-icon>favorite</mat-icon>
         <span>Ma selection </span>
