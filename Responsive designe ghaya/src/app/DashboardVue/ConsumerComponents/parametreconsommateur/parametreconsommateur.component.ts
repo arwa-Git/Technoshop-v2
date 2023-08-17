@@ -9,12 +9,7 @@ import { UpdatedUser } from 'src/app/classes/UpdatedUser';
   styleUrls: ['./parametreconsommateur.component.css']
 })
 export class ParametreconsommateurComponent implements OnInit{
-  nom: string = '';
-  prenom: string = '';
-  adresse: string = '';
-  telephone: string = '';
-  Email: string = '';
-  motDePasse: string = '';
+  
   user!:any;
   UserRole!:any;
   updatedUser:UpdatedUser = new UpdatedUser();
@@ -31,10 +26,12 @@ export class ParametreconsommateurComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.userEmail = this.route.snapshot.params['email'];
+   if(this.role == 2) this.userEmail = this.route.snapshot.params['email'];
+   else this.userEmail = localStorage.getItem('UserEmail'); // Get the role value from localStorage
     this.userService.getUserByEmail(this.userEmail).subscribe(
       response => {
         this.user = response;
+        console.log(this.user);
         if (this.user.role === 0) {
           this.UserRole = "Consumer";
         } else if (this.user.role === 1) {
@@ -64,7 +61,7 @@ export class ParametreconsommateurComponent implements OnInit{
   }
 
   handleUpdate() {
-    if (window.confirm('Êtes-vous sûr de vouloir modifier votre compte ?')) {
+    if (window.confirm('Are you sure to update th Account ?')) {
       this.updatedUser.name = this.user.name;
       this.updatedUser.email = this.user.email;
       this.updatedUser.phone = this.user.phone;
@@ -78,18 +75,25 @@ export class ParametreconsommateurComponent implements OnInit{
             console.error('Error updating user', error);
           }
         );
-        this.router.navigate(['/dashboard/gerervendeur']);
-    }
+        if(this.role == 2)this.router.navigate(['/dashboard/gerervendeur']);
+        else {this.router.navigate(['']);}
   }
+}
 
   handleDelete() {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer votre compte définitivement ?')) {
-      // Logique pour supprimer le compte ici
-      console.log('Compte supprimé avec succès !');
-      // Rediriger vers la page d'accueil (remplacez 'accueil' par le chemin approprié)
-      window.location.href = '/';
-    } else {
-      console.log('Suppression annulée.');
+    const confirmDelete = window.confirm('Are you sure you want to delete your Account?');
+    if (confirmDelete) {
+      this.userEmail = localStorage.getItem('UserEmail');
+      this.userService.deleteUserByEmail(this.userEmail).subscribe(
+    response => {
+        alert('User deleted successfully');
+        this.router.navigate(['']);
+    },
+    error => {
+        console.error('Error deleting user', error);
     }
+    );
+    }
+    this.router.navigate(['']);
   }
 }
