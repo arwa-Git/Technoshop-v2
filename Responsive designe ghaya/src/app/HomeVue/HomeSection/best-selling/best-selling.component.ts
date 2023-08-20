@@ -10,10 +10,10 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class BestSellingComponent implements OnInit {
   ngOnInit(){ }
 
-  url : string ="../../../../assets/images/p1.png";
-  url2 : string ="../../../../assets/images/p1.png";
-  url3: string="../../../../assets/images/p1.png";
-  url4: string="../../../../assets/images/p1.png";
+  url : string ="../../../../assets/images/phone.jpg";
+  url2 : string ="../../../../assets/images/four.jpg";
+  url3: string="../../../../assets/images/fri.jpg";
+  url4: string="../../../../assets/images/pc3.jpg";
  
   constructor(){}
   

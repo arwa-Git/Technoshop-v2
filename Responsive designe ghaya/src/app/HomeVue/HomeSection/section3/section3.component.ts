@@ -14,10 +14,10 @@ export class Section3Component implements OnInit {
   constructor(){}
 
   ngOnInit(){ }
-  url : string ="../../../../assets/images/p1.png";
-  url2 : string ="../../../../assets/images/p1.png";
-  url3: string="../../../../assets/images/p1.png";
-  url4: string="../../../../assets/images/p1.png";
+  url : string ="../../../../assets/images/pc1.png";
+  url2 : string ="../../../../assets/images/pc1.png";
+  url3: string="../../../../assets/images/pc1.png";
+  url4: string="../../../../assets/images/pc1.png";
 
 
   changeImage(event:any){
