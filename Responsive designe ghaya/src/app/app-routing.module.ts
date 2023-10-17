@@ -49,6 +49,10 @@ const routes: Routes = [
   {path: 'filter',component: FilterComponent},
  /* { path: '', redirectTo: 'filter', pathMatch: 'full' },*/
   { path: 'produit/:id', component: ProductredirectpageComponent },
+  {path: 'modifierprod',component: ModifierComponent},
+  {path: 'gérervendeur',component: GerervendeurComponent},
+
+
 
 
 
